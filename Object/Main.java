@@ -3,25 +3,33 @@ package Object;
 public class Main {
 	public static void main(String[] args) {
 		Hero h = new Hero("ミナト");
-		System.out.println("勇者" + h.name + "を生み出した！");
+		System.out.println("勇者" + h.getName() + "を生み出した！");
 
-		Cleric c = new Cleric("カミュ", 100, 50);
-		System.out.println("聖職者" + c.name + "のHPは" + c.hp + "、MPは" + c.mp);
+		Wizard wizard = new Wizard();
 
-		Matango m1 = new Matango();
-		m1.hp = 50;
-		m1.suffix = 'A';
+		Wand wand = new Wand();
+		wizard.setWand(wand);
 
-		Matango m2 = new Matango();
-		m2.hp = 48;
-		m2.suffix = 'B';
+		wizard.heal(h);
 
-		h.slip();
-		m1.run();
-		m2.run();
+//		Cleric c = new Cleric("カミュ", 100, 50);
+//		System.out.println("聖職者" + c.name + "のHPは" + c.hp + "、MPは" + c.mp);
+//
+//		Matango m1 = new Matango();
+//		m1.hp = 50;
+//		m1.suffix = 'A';
+//
+//		Matango m2 = new Matango();
+//		m2.hp = 48;
+//		m2.suffix = 'B';
+//
+//		h.slip();
+//		m1.run();
+//		m2.run();
 
 		Hero.money = 100;
 		System.out.println("勇者たちの所持金は、" + Hero.money + "円になった");
+		System.out.println("勇者のHPは、" + h.getHp() + "になった");
 	}
 
 }
