@@ -30,9 +30,38 @@ public class Main {
 		PoisonMatango pm = new PoisonMatango('A');
 		pm.attack(h);
 
+		//static 静的メンバ
 		Hero.money = 100;
 		System.out.println("勇者たちの所持金は、" + Hero.money + "円になった");
 		System.out.println("勇者のHPは、" + h.getHp() + "になった");
+
+		//多態性
+		Character chara = wizard;
+		Matango m = new Matango('A');
+		chara.name = "アサカ";
+		chara.attack(m);
+
+		Slime slime = new Slime();
+		Monster monster = new Slime();
+		slime.run();
+		monster.run();
+
+		//多態性 捉え方の変更
+		//		Character c = new Wizard();
+		if (chara instanceof Wizard) {
+			Wizard w = (Wizard) chara;
+			System.out.println("wizardにキャストしました");
+			w.fireball(m);
+		}
+
+		//多態性 配列利用
+		Character[] arrayChara = new Character[3];
+		arrayChara[0] = new Hero("ヒナタ");
+		arrayChara[1] = new Hero();
+		arrayChara[2] = new Wizard();
+		for (Character cha : arrayChara) {
+			cha.attack(m);
+		}
 	}
 
 }
